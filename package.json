@@ -1,0 +1,18 @@
+{
+  "name": "credo",
+  "version": "0.1.0",
+  "description": "An app to track your moods",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "dependencies":{
+    "express": "4.16.2",
+    "mongoose": "^4.4.6",
+    "body-parser": "1.18.2",
+    "path": "0.12.7"
+  },
+
+  "author": "Chris Puente",
+  "license": "ISC"
+}
