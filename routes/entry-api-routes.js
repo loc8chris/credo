@@ -64,11 +64,14 @@ module.exports = function(app) {
     db.Entry.update(
       req.body,
       {
-        where: {
-          id: req.body.id
-        }
+         _id: req.body.id
       }).then(function(entry) {
         res.json(entry);
       });
+
+    db.Entry.findOne({_id: req.body.id})
+    .then(function(entry){
+      db.Entry.save(req.body)
+    });
   });
 };

@@ -1,23 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="credoApp">
   <head>
     <meta charset="utf-8">
     <title>Home Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+     <!-- Custom styles for this template -->
+     <link href="/css/sticky-footer.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src= "/controller/entries.js"></script>
+    <style type="text/css">
+        #bg-image{
+            width: 730x;
+            height: 372px;
+        }
+        #mirror{
+            width: 200px;
+        }
+        #credo-logo{
+            width: 200px;
+        }
+        #app-button{
+            position: fixed;
+            top: 150px;
+            left: 45%;
+        }
+    </style>
   </head>
   <body>
-
-
+    <div id="app-button">
+        <a type="button" class="btn btn-info btn-lg" href="app.html">Let's Find Out</a>
+    </div>
     <div class="container">
-       <div class="jumbotron">
-        <button id="scrape-btn">Scrape the Web</button>
-      </div>
-      <div id="notes"></div>
-      <div id= "articles"></div>
-      
+            <div class="row">
+               <div class="col-md-2 col-md-offset-3">
+                  <img src="/img/credo-logo.png" alt="credo-logo" id="credo-logo" >
+               </div>
+            </div>
+            <div class="row" id="bg-img">
+                <div class="col">
+                    <img src="/img/background.png" alt="background" id="bg-image">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 no-gutters">
+                  <img src="/img/mirror.png" alt="mirror" id="mirror">
+                </div>
+                <div class="col-md-7">
+                    <h2>Our Purpose</h2>
+                    <p>Our goal is to promote heightened awareness and to show that anything is possible 
+                        if you believe it is. Self-awareness is having a clear perception of your 
+                        personality, including strengths, thoughts, beliefs, motivation, and emotions. 
+                        Developing self -awareness allows you to challenge your own beliefs by recognizing 
+                        the harm they cause you and to others. Taking notice of what is going on within 
+                        you physically and emotionally on a regular basis is crucial to pinpointing 
+                        problems that are occurring within. 
+                    </p>
+                    <p> We have listened to others our whole lives to the point that we have forgotten 
+                        who we are.  We don't hear what is our "inner spirt" any longer.  
+                        All we hear are the lessons we have been taught by others. 
+                        We believe that we are limited, that we may be incapable. 
+                        We were taught to judge and to be judged, so much that now we do it to ourselves. 
+                        Taking note of your strengths and accomplishments is also a good way to challenge 
+                        self defeating beliefs. 
+                        We want to open the minds of those who use this application. 
+                        By doing so we hope that they may be able to "connect the dots" 
+                        and make some positive changes.
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
   </body>
-  <script src= "app.js"></script>
 </html>
