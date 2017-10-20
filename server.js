@@ -5,7 +5,9 @@ const webpackConfig = require('./webpack.config.js');
 let path = require("path");
 let bodyParser = require("body-parser");
 let apiRoutes =  require("./routes/entry-api-routes");
-let Entry = require("./models/entries.js")
+let feelingApiRoutes =  require("./routes/feeling-api-routes");
+let userApiRoutes = require("./routes/user-api-routes");
+let Entry = require("./models/entries.js");
 var mongoose = require("mongoose");
 
 mongoose.Promise = Promise;
@@ -46,6 +48,8 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static("client"));
 apiRoutes(app);
+feelingApiRoutes(app);
+userApiRoutes(app);
 
 app.get("/", function(req, res){
     res.sendFile(path.join(__dirname, "/client/index.html"));

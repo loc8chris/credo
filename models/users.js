@@ -4,32 +4,29 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create article schema
-var EntrySchema = new Schema({
-  UserId: {
+var UserSchema = new Schema({
+  userId: {
     type: String,
     required: true
   },
   // title is a required string
-  feeling: {
-    type: Schema.ObjectId,
-    ref: "Feeling"
-  },
-
-  // link is a required string
-  thought: {
+  email: {
     type: String,
     required: true
   },
-  time: {
-    type: Date,
-    default: Date.now
+
+  // link is a required string
+  password: {
+    type: String,
+    required: true
   }
+
 });
 
 // Create the Article model with the ArticleSchema
-var Entry = mongoose.model("Entry", EntrySchema);
+var User = mongoose.model("User", UserSchema);
 
 // Export the model
 module.exports = {
-  Entry: Entry
+  User: User
 } 

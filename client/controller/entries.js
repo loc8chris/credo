@@ -2,6 +2,7 @@ angular.module('credoApp', [])
 .controller('EntriesListController', function(){
     var entriesList = this;
     entriesList.entries = []
+    entriesList.feelings = []
 
     entriesList.get = function(authorId){
       $.ajax("/api/entries")
@@ -25,6 +26,20 @@ angular.module('credoApp', [])
         })
         .done(function(entry){
             entriesList.entries.push(entry);
+        })
+        .fail(function(error){
+            console.log(error);
+        })
+    }
+
+    entriesList.getFeelings = function(){
+        $.ajax({
+            type: "GET",
+            url: "/api/feelings"
+          
+        })
+        .done(function(data){
+            entriesList.feelings=data;
         })
         .fail(function(error){
             console.log(error);

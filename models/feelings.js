@@ -4,32 +4,31 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 // Create article schema
-var EntrySchema = new Schema({
-  UserId: {
+var FeelingSchema = new Schema({
+  name: {
     type: String,
     required: true
   },
   // title is a required string
-  feeling: {
-    type: Schema.ObjectId,
-    ref: "Feeling"
+  score: {
+    type: Number
+  },
+
+  thoughts: {
+      type: Array
   },
 
   // link is a required string
-  thought: {
-    type: String,
-    required: true
-  },
-  time: {
-    type: Date,
-    default: Date.now
+  reaction: {
+    type: String
   }
+
 });
 
 // Create the Article model with the ArticleSchema
-var Entry = mongoose.model("Entry", EntrySchema);
+var Feeling = mongoose.model("Feeling", FeelingSchema);
 
 // Export the model
 module.exports = {
-  Entry: Entry
+  Feeling: Feeling
 } 

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html ng-app="userApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+     <!-- Custom styles for this template -->
+     <link href="/css/sticky-footer.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src= "/controller/user.js"></script>
+    <style type="text/css">
+        #bg-image{
+            width: 730x;
+            height: 372px;
+        }
+        #mirror{
+            width: 200px;
+        }
+        #credo-logo{
+            width: 200px;
+        }
+        #app-button{
+            position: fixed;
+            top: 150px;
+            left: 45%;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div ng-controller="UserController as userInfo">
+            <div id="sign-in-modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4>Login</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="email">Email</label>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <input type="text" name="email" id="email" placeholder="email" ng-model="userInfo.email">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <label for="password">Password</label>
+                                    </div>   
+                                    <div class="col-md-5">
+                                        <input type="password" name="password" id="password" placeholder="password" ng-model="userInfo.password">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button ng-click="userInfo.login()">Submit</button>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            footer
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="input-field col col-md-9">
+                            <input placeholder="User Tag" id="user-tag" type="text" class="validate" ng-model="userInfo.userId" required>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-field col-md-9">
+                            <input placeholder="E-Mail" id="new-email" type="email" class="validate" ng-model="userInfo.email" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col-md-9">
+                            <input placeholder="Confirm E-Mail" id="v-new-email" type="email" class="validate" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col-md-9">
+                            <input placeholder="Password" id="new-password" type="password" class="validate" ng-model="userInfo.password" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <button  class="btn btn-info btn-lg waves-effect waves-light btn teal darken-3" id="create-account" ng-click="userInfo.add()">
+                                Create Account
+                            </button>
+                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#sign-in-modal" id="sign-in">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div>     
+  </body>
+</html>
