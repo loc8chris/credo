@@ -9,6 +9,7 @@ let feelingApiRoutes =  require("./routes/feeling-api-routes");
 let userApiRoutes = require("./routes/user-api-routes");
 let Entry = require("./models/entries.js");
 var mongoose = require("mongoose");
+var _ = require('lodash');
 
 mongoose.Promise = Promise;
 

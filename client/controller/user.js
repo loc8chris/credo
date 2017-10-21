@@ -13,10 +13,19 @@ angular.module('userApp', [])
             }
         })
         .done(function(user){
-            alert("Account was created")
+            if (user && user.email){
+                console.log("user logged in")
+                window.location.href = "/app.html";
+            }
+            else {
+                console.log("failed to create account")
+                alert("failed to create user account!")
+            }
         })
         .fail(function(error){
             console.log(error);
+            console.log("failed to create account")
+            alert("failed to create user account!")
         })
     };
     userInfo.login = function(){
@@ -30,7 +39,11 @@ angular.module('userApp', [])
             }
         })
         .done(function(user){
-            console.log("user logged in")
+            if (user && user.email){
+                console.log("user logged in")
+                window.location.href = "/app.html";
+            }
+           
         })
         .fail(function(error){
             console.log(error);

@@ -19,7 +19,7 @@ var FeelingSchema = new Schema({
   },
 
   // link is a required string
-  reaction: {
+  charactertrait: {
     type: String
   }
 

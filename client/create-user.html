@@ -27,12 +27,66 @@
             top: 150px;
             left: 45%;
         }
+        body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #eee;
+        }
+
+        .form-signin {
+        max-width: 330px;
+        padding: 15px;
+        margin: 0 auto;
+        }
+        .form-signin .form-signin-heading,
+        .form-signin .checkbox {
+        margin-bottom: 10px;
+        }
+        .form-signin .checkbox {
+        font-weight: normal;
+        }
+        .form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+                box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+        }
+        .form-signin .form-control:focus {
+        z-index: 2;
+        }
+        .form-signin input[type="email"] {
+        margin-bottom: -1px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        }
+        .form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        }
     </style>
   </head>
   <body>
     <div class="container">
         <div ng-controller="UserController as userInfo">
-            <div id="sign-in-modal" class="modal fade" role="dialog">
+            <form class="form-signin">
+                    <h2 class="form-signin-heading">Please sign in</h2>
+                    <label for="inputEmail" class="sr-only">Email address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus ng-model="userInfo.email">
+                    <label for="inputPassword" class="sr-only">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required ng-model="userInfo.password">
+                    <div class="checkbox">
+                        <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block" ng-click="userInfo.login()" type="submit">Sign in</button>
+                    <button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#create-account-modal" id="create account">Create Account</button>
+            </form>
+            <div id="create-account-modal" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -41,27 +95,37 @@
                         </div>
                         <div class="modal-body">
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label for="email">Email</label>
+                                <form class="form-signin">
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                             
+                                                
+                                            <div class="row">
+                                                <div class="input-field col-md-9">
+                                                    <input placeholder="E-Mail" id="new-email" type="email" class="form-control" ng-model="userInfo.email" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col-md-9">
+                                                    <input placeholder="Confirm E-Mail" id="v-new-email" type="email" class="form-control" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col-md-9">
+                                                    <input placeholder="Password" id="new-password" type="password" class="form-control" ng-model="userInfo.password" required>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <button  class="btn btn-lg btn-primary btn-block btn btn-info btn-lg waves-effect waves-light btn teal darken-3" data-dismiss="modal" id="create-account" ng-click="userInfo.add()">
+                                                        Create Account
+                                                    </button>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-5">
-                                        <input type="text" name="email" id="email" placeholder="email" ng-model="userInfo.email">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <label for="password">Password</label>
-                                    </div>   
-                                    <div class="col-md-5">
-                                        <input type="password" name="password" id="password" placeholder="password" ng-model="userInfo.password">
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <button ng-click="userInfo.login()">Submit</button>  
-                                    </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -70,39 +134,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="input-field col col-md-9">
-                            <input placeholder="User Tag" id="user-tag" type="text" class="validate" ng-model="userInfo.userId" required>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="input-field col-md-9">
-                            <input placeholder="E-Mail" id="new-email" type="email" class="validate" ng-model="userInfo.email" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col-md-9">
-                            <input placeholder="Confirm E-Mail" id="v-new-email" type="email" class="validate" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="input-field col-md-9">
-                            <input placeholder="Password" id="new-password" type="password" class="validate" ng-model="userInfo.password" required>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-9">
-                            <button  class="btn btn-info btn-lg waves-effect waves-light btn teal darken-3" id="create-account" ng-click="userInfo.add()">
-                                Create Account
-                            </button>
-                            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#sign-in-modal" id="sign-in">Login</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
    </div>     
   </body>

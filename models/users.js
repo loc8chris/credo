@@ -5,10 +5,7 @@ var Schema = mongoose.Schema;
 
 // Create article schema
 var UserSchema = new Schema({
-  userId: {
-    type: String,
-    required: true
-  },
+  
   // title is a required string
   email: {
     type: String,
