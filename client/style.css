@@ -1,0 +1,41 @@
+.container-fluid{
+    width: 1170px
+    margin: auto;
+}
+p{
+    text-align: left;
+    margin: auto;
+}
+#bg-image{
+    width: 1170px;
+    height: 658px;
+    margin: auto;
+    overflow: hidden;
+}
+#mirror{
+    width: 200px;
+}
+#credo-logo{
+    display: block;
+    margin: auto;
+    width: 350px;
+}
+#app-button{
+    position: fixed;
+    top: 150px;
+    left: 45%;
+}
+#create-user-button{
+    position: fixed;
+    top: 200px;
+    left: 45%;
+}
+#bg-image{
+    width: 730x;
+    height: 372px;
+}
+   .bs-example{
+    	margin: 20px;
+}
+
+
