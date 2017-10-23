@@ -1,6 +1,6 @@
 .container-fluid{
     width: 1170px
-    margin: auto;
+    /*margin: auto;*/
 }
 p{
     text-align: left;
@@ -34,7 +34,8 @@ p{
     width: 730x;
     height: 372px;
 }
-   .bs-example{
+   
+.bs-example{
     	margin: 20px;
 }
 

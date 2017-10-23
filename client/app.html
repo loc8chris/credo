@@ -21,13 +21,13 @@
                   <img src="/img/credo-logo.png" alt="credo-logo" id="credo-logo" >
                </a>
             </div>
-         </div>
-         <div class="row" id="bg-img">
+        </div>
+        <div class="row" id="bg-img">
              <div class="col">
                  <img src="/img/blindfold.jpg" alt="background" id="bg-image">
              </div>
-         </div>
-         <div class="bs-example">
+        </div>
+        <div class="bs-example">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-3">
@@ -209,68 +209,150 @@
                 </div>
             </div>
         </div>
-        <div ng-controller="EntriesListController as entriesList">
-          <div id="new-entry-modal" class="modal fade" role="dialog">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <h4>Add a new entry</h4>
+        <div ng-controller="EntriesListController as entriesList" id="entries-controller">
+            <div id="new-entry-modal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4>Add a new entry</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="container">
+               
+                                <input type="hidden" name="email" id="email">
+                                <input type="hidden" name="feeling" id="feeling">
+                                <input type="hidden" name="charactertrait" id="charactertrait">
+                                <input type="hidden" name="score" id="score">
+                                
+                                <div class="bs-example">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <img src="" alt="125x125" id="feeling-img">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="thoughts-div">
+                                    <select name="thoughts" id="thoughts">
+                                        <option value="">---Please select---</option> <!-- not selected / blank option -->
+                                        <option value="" id="thought1"></option> <!-- not selected / blank option -->
+                                        <option value="" id="thought2"></option> <!-- not selected / blank option -->
+                                        <option value="" id="thought3"></option> <!-- not selected / blank option -->
+                                        <option value="" id="thought4"></option> <!-- not selected / blank option -->
+                                    </select><br>
+                                </div>
+                                <div>
+                                    <input type="text" name="thought" id="thought" placeholder="thought" ng-model="entriesList.thought">
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button ng-click="entriesList.add()">Submit</button>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        footer
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="authoId">Author Id</label>
-                      </div>
-                      <div class="col-md-5">
-                        <input type="text" name="authorId" id="authorId" placeholder="author id" ng-model="entriesList.AuthorId">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="imageName">Image Name</label>
-                      </div>   
-                      <div class="col-md-5">
-                        <input type="text" name="imageName" id="imageName" placeholder="image name" ng-model="entriesList.imageName">
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-2">
-                        <label for="text">Text</label>
-                      </div>
-                      <div class="col-md-5">                        
-                        <textarea name="text" id="text" ng-model="entriesList.text"></textarea><br>    
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-3">
-                        <button ng-click="entriesList.add()">Submit</button>  
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  footer
-                </div>
-              </div>
             </div>
-          </div>
         
-        <button type="button" id="entries-btn" ng-click="entriesList.get()" class="btn btn-info btn-lg">Entries</button>
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new-entry-modal"id="new-entry">New Entry</button>
+            <button type="button" id="entries-btn" ng-click="entriesList.get()" class="btn btn-info btn-lg">Entries</button>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new-entry-modal"id="new-entry">New Entry</button>
         
-        <h2>Entries</h2>
-        <div ng-repeat="entry in entriesList.entries">
-            <hr>
-            <h2>{{entry.time}}</h2>  
-            <p>{{entry.AuthorId}}</p>
-            <p>{{entry.text}}</p>
-            <p>{{entry.imageName}}</p>
-        </div>
-      </div>
-    </div>
+            <h2>Entries</h2>
+            <div ng-repeat="entry in entriesList.entries">
+                <hr>
+                <h2>{{entry.time}}</h2>  
+                <p>{{entry.AuthorId}}</p>
+                <p>{{entry.text}}</p>
+                <p>{{entry.imageName}}</p>
+            </div>
+        </div><!--Controller-->
+    </div><!--Container-->
     <div id="app"></div>
+    <script>
+    
+    function getParameterByName(name, url) {
+        if (!url) url = window.location.href;
+        name = name.replace(/[\[\]]/g, "\\$&");
+        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return '';
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    $(document).ready( function(){
+        $('a').click(function(){
+            var self = this;
+
+            console.log(self);
+            var parents = $(self).parents(".bs-example");
+
+            //this tells us that it's part of bs-example
+            if(parents && parents.length > 0){
+                var image = $(self).children()[0];
+                var imagePath = $(image).attr('src');
+                $('#feeling-img').attr('src', imagePath);
+                console.log("Image: " + image);
+                doPopup(imagePath);
+            }
+        })
+    });
+
+    var _feelingName;
+    function doPopup(imagePath){
+        //alert("You selected " + feelingSequence);
+        
+        
+        var tokens = imagePath.split("/");
+        var feelingName = tokens[tokens.length-1].split(".")[0];
+
+        console.log("Feeling text " + feelingName);
+
+        var entriesController = angular.element(document.getElementById('entries-controller'));
+
+        console.log(entriesController);
+
+        entriesController.scope().getFeeling(feelingName, 
+            function(feeling){
+                console.log("Got feeling...")
+                console.log(feeling)
+                $('#thought1').attr('value', "1");
+                $('#thought2').attr('value', "2");
+                $('#thought3').attr('value', "3");
+                $('#thought4').attr('value', "4");
+
+                $('#thought1').html(feeling.thoughts[0]);
+                $('#thought2').html(feeling.thoughts[1]);
+                $('#thought3').html(feeling.thoughts[2]);
+                $('#thought4').html(feeling.thoughts[3]);
+
+                $("#new-entry-modal").modal();
+
+                let email = getParameterByName('email');
+                document.getElementById('email').value = email;
+                document.getElementById('feeling').value = feeling.name;
+                document.getElementById('charactertrait').value = feeling.charactertrait;
+                document.getElementById('thought').value = feeling.thoughts[0];
+                document.getElementById('score').value = feeling.score;
+
+                $("#thoughts").change(function(){
+
+                    var str = "";
+                    $( "#thoughts option:selected" ).each(function() {
+                        str += $( this ).text() + " ";
+                        });
+
+                    $("#thought").val(str);
+                });
+            });
+    }
+    </script>
 
   </body>
  

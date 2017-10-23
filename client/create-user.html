@@ -91,42 +91,19 @@
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4>Login</h4>
+                            <h4>Create Account</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="container">
-                                <form class="form-signin">
-                                    <div class="row">
-                                        <div class="col-md-9">
-                                             
-                                                
-                                            <div class="row">
-                                                <div class="input-field col-md-9">
-                                                    <input placeholder="E-Mail" id="new-email" type="email" class="form-control" ng-model="userInfo.email" required>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col-md-9">
-                                                    <input placeholder="Confirm E-Mail" id="v-new-email" type="email" class="form-control" required>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="input-field col-md-9">
-                                                    <input placeholder="Password" id="new-password" type="password" class="form-control" ng-model="userInfo.password" required>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-md-9">
-                                                    <button  class="btn btn-lg btn-primary btn-block btn btn-info btn-lg waves-effect waves-light btn teal darken-3" data-dismiss="modal" id="create-account" ng-click="userInfo.add()">
-                                                        Create Account
-                                                    </button>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                            <form class="form-signin">
+
+                                <input placeholder="E-Mail" id="new-email" type="email" class="form-control" ng-model="userInfo.email" required>
+                                <input placeholder="Confirm E-Mail" id="v-new-email" type="email" class="form-control" required>
+                                <input placeholder="Password" id="new-password" type="password" class="form-control" ng-model="userInfo.password" required>
+                                <button  class="btn btn-lg btn-primary btn-block btn btn-info btn-lg" data-dismiss="modal" id="create-account" ng-click="userInfo.add()">
+                                    Create Account
+                                </button>
+                                            
+                            </form>
                         </div>
                         <div class="modal-footer">
                             footer

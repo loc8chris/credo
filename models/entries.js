@@ -3,18 +3,34 @@ var mongoose = require("mongoose");
 // Create Schema class
 var Schema = mongoose.Schema;
 
+/*
+
+                email: entriesList.email,
+                feelingName: entriesList.feelingName,
+                characerTrait: entriesList.characterTrait,
+                score: entriesList.score,
+                thought: entriesList.thought
+*/
 // Create article schema
 var EntrySchema = new Schema({
-  UserId: {
+  email: {
     type: String,
     required: true
   },
   // title is a required string
-  feeling: {
-    type: Schema.ObjectId,
-    ref: "Feeling"
+  name: {
+    type: String,
+    required: true
   },
 
+  characterTrait: {
+    type: String,
+    required: true
+  },
+  score: {
+    type: Number,
+    required: true
+  },
   // link is a required string
   thought: {
     type: String,

@@ -25,4 +25,15 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/feelings", function(req, res) {
+    var query = {};
+    query.name = req.params.feelingName;
+    db.Entry.find(
+      query
+    ).then(function(feeling) {
+      res.json(feeling);
+    });
+  });
+
+
 };

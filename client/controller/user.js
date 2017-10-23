@@ -7,7 +7,6 @@ angular.module('userApp', [])
             type: "POST",
             url: "/api/users",
             data:{
-                userId: userInfo.userId,
                 email: userInfo.email,
                 password: userInfo.password
             }
@@ -15,7 +14,7 @@ angular.module('userApp', [])
         .done(function(user){
             if (user && user.email){
                 console.log("user logged in")
-                window.location.href = "/app.html";
+                window.location.href = "/app.html?email="+user.email;
             }
             else {
                 console.log("failed to create account")
@@ -33,7 +32,6 @@ angular.module('userApp', [])
             type: "POST",
             url: "/api/login",
             data:{
-                userId: userInfo.userId,
                 email: userInfo.email,
                 password: userInfo.password
             }
@@ -41,7 +39,7 @@ angular.module('userApp', [])
         .done(function(user){
             if (user && user.email){
                 console.log("user logged in")
-                window.location.href = "/app.html";
+                window.location.href = "/app.html?email="+user.email;
             }
            
         })

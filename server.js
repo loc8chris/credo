@@ -13,8 +13,6 @@ var _ = require('lodash');
 
 mongoose.Promise = Promise;
 
-
-
 let app = express();
 
 const compiler = webpack(webpackConfig);
