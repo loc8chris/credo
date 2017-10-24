@@ -5,26 +5,65 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
      <!-- Custom styles for this template -->
-    <link href="/css/sticky-footer.css" rel="stylesheet">
-    <link rel="stylesheet" type"text/css" href"style.css" />
+     <!--link href="./assets/cover.css" rel="stylesheet"-->
+    <link rel="stylesheet" type"text/css" href"./assets/style.css?v=1" />
+    <link rel="stylesheet" href="./assets/signin.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src= "/controller/entries.js"></script>
+
+    <style>
+        #bg-image{
+            width: 700x;
+            height: 332px;
+            padding-left: 40px;
+        }
+
+        #credo-logo{
+            position: relative;
+            top: 0px;
+            left: 40%;
+        }
+
+    </style>
   </head>
     <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-2 col-md-offset-3">
-               <a href="index.html">
-                  <img src="/img/credo-logo.png" alt="credo-logo" id="credo-logo" >
-               </a>
+ 
+    <div class="container border-red" >
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+            <li class="active"><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+            <li><a href="history.html">History</a></li>
+            <li><a href="#">About</a></li>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact Us <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                <li><a href="#">Email</a></li>
+                <li><a href="#">Phone</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">Set Appointment</a></li>
+                </ul>
+            </li>
+            </ul>
+            <!-- navbar-left will move the search to the left -->
+            <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
             </div>
-        </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div><!-- /.navbar-collapse -->
+
+        <a href="index.html">
+                <img src="/img/credo-logo.png" alt="credo-logo" id="credo-logo" >
+        </a>
+
         <div class="row" id="bg-img">
-             <div class="col">
-                 <img src="/img/blindfold.jpg" alt="background" id="bg-image">
+             <div class="col-md-10 col-md-offset-1">
+                 <img src="/img/untrain-your-brain.jpg" alt="background" id="bg-image">
              </div>
         </div>
         <div class="bs-example">
@@ -198,12 +237,12 @@
                     </div>
                     <div class="col-xs-3">
                         <a href="#" class="thumbnail">
-                            <img src="/img/resentful.png" alt="125x125">
+                            <img src="/img/resentful.png" alt="125x125" class="mood-image">
                         </a>
                     </div>
                     <div class="col-xs-3">
                         <a href="#" class="thumbnail">
-                            <img src="/img/enraged.png" alt="125x125">
+                            <img src="/img/enraged.png" alt="125x125" class="mood-image">
                         </a>
                     </div>
                 </div>
@@ -218,7 +257,7 @@
                             <h4>Add a new entry</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="container">
+                            <form class="container form-signin">
                
                                 <input type="hidden" name="email" id="email">
                                 <input type="hidden" name="feeling" id="feeling">
@@ -234,42 +273,24 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div id="thoughts-div">
-                                    <select name="thoughts" id="thoughts">
-                                        <option value="">---Please select---</option> <!-- not selected / blank option -->
-                                        <option value="" id="thought1"></option> <!-- not selected / blank option -->
-                                        <option value="" id="thought2"></option> <!-- not selected / blank option -->
-                                        <option value="" id="thought3"></option> <!-- not selected / blank option -->
-                                        <option value="" id="thought4"></option> <!-- not selected / blank option -->
-                                    </select><br>
-                                </div>
-                                <div>
-                                    <input type="text" name="thought" id="thought" placeholder="thought" ng-model="entriesList.thought">
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <button ng-click="entriesList.add()">Submit</button>  
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        footer
+
+                                <select name="thoughts" id="thoughts" class="form-control">
+                                    <option value="">---Please select---</option> <!-- not selected / blank option -->
+                                    <option value="" id="thought1"></option> <!-- not selected / blank option -->
+                                    <option value="" id="thought2"></option> <!-- not selected / blank option -->
+                                    <option value="" id="thought3"></option> <!-- not selected / blank option -->
+                                    <option value="" id="thought4"></option> <!-- not selected / blank option -->
+                                </select><br>
+
+                                <input type="text" name="thought" class="form-control" id="thought" placeholder="thought" ng-model="entriesList.thought">
+                                <br>
+                                <br>
+                                <button ng-click="entriesList.add()" data-dismiss="modal" class="btn btn-lg btn-primary btn-block btn btn-info btn-lg">Submit</button>  
+ 
+                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
-        
-            <button type="button" id="entries-btn" ng-click="entriesList.get()" class="btn btn-info btn-lg">Entries</button>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#new-entry-modal"id="new-entry">New Entry</button>
-        
-            <h2>Entries</h2>
-            <div ng-repeat="entry in entriesList.entries">
-                <hr>
-                <h2>{{entry.time}}</h2>  
-                <p>{{entry.AuthorId}}</p>
-                <p>{{entry.text}}</p>
-                <p>{{entry.imageName}}</p>
             </div>
         </div><!--Controller-->
     </div><!--Container-->
@@ -301,7 +322,9 @@
                 console.log("Image: " + image);
                 doPopup(imagePath);
             }
-        })
+        });
+        
+        $('.thumbnail').children('img').addClass('mood-image');
     });
 
     var _feelingName;
@@ -338,7 +361,7 @@
                 document.getElementById('email').value = email;
                 document.getElementById('feeling').value = feeling.name;
                 document.getElementById('charactertrait').value = feeling.charactertrait;
-                document.getElementById('thought').value = feeling.thoughts[0];
+                document.getElementById('thought').value = feeling.thoughts[0].split('.')[0]+' ';
                 document.getElementById('score').value = feeling.score;
 
                 $("#thoughts").change(function(){
@@ -347,6 +370,8 @@
                     $( "#thoughts option:selected" ).each(function() {
                         str += $( this ).text() + " ";
                         });
+                    
+                    str = str.split('.')[0] + ' ';    
 
                     $("#thought").val(str);
                 });

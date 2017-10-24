@@ -40,6 +40,7 @@ module.exports = function(app) {
     
     console.log("posting entry");
     console.log(req.body);
+    req.body.score = parseFloat(req.body.score)
     db.Entry.create(req.body).then(function(entry) {
       res.json(entry);
     },

@@ -23,7 +23,7 @@ var EntrySchema = new Schema({
     required: true
   },
 
-  characterTrait: {
+  charactertrait: {
     type: String,
     required: true
   },

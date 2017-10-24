@@ -36,7 +36,12 @@ p{
 }
    
 .bs-example{
-    	margin: 20px;
+    margin: 0px;
+}
+
+.mood-image{
+    width: 325px;
+    height: 325px;
 }
 
 
